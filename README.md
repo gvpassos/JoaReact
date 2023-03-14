@@ -28,12 +28,13 @@ criar um aplicativo de noticias do sul de minas
     Inicie o aplicativo no dispositivo ou no emulador: yarn android ou npm run android
     
 ## Proximos passos
-    - [ ] Implementar uma Inteface mais amigavel
-    - [ ] Suporte a ADs 
-    - [ ] Função de Busca 
-    - [ ] Exibição das categorias do jornal 
-    - [ ] Adição da funcao de compartilhar e de salvar noticias
-    - [ ] permitir outros blog possam usar mesmo app com poucas modificações
+
+- [ ] Implementar uma Inteface mais amigavel
+- [ ] Suporte a ADs 
+- [ ] Função de Busca 
+- [ ] Exibição das categorias do jornal 
+- [ ] Adição da funcao de compartilhar e de salvar noticias
+- [ ] permitir outros blog possam usar mesmo app com poucas modificações
     
 
 ### Como contribuir
