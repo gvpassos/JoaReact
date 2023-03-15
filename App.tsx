@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import {StyleSheet, View,Text} from 'react-native';
+import {View,Text,Button} from 'react-native';
 
 import{parseXml} from './Componentes/spliter';
 import{NewsList} from './Componentes/NoticiaLista';
+import{Aperitivo} from './Componentes/Aperitivo';
+
+import{styles} from './Estilos/styles';
+import { estiloListaNoticias } from './Estilos/listaStyle';
+
+
 
 export default class App extends Component {
   constructor(props) {
@@ -17,12 +23,12 @@ export default class App extends Component {
     this.fetchData();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.noticiasArray !== this.state['noticiasArray']) {
-      this.fetchData();
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state['noticiasArray'] !== nextState['noticiasArray']) {
+      return true;
     }
+    return false;
   }
-
   async fetchData() {
     try {
       const response = await fetch('https://feeds.feedburner.com/jornaloaperitivo/hkmn');
@@ -41,29 +47,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <View>
+      <View style={estiloListaNoticias.container}>
+        <Aperitivo>Jornal O Aperitivo</Aperitivo>
         <Text>Notícias</Text>
         {this.state['carregando'] ? (
           <Text>Carregando ... </Text>
         ) : (
-          <NewsList news={this.state['noticiasArray']} style={styles}/>)}
+          <NewsList numNoticias={26}  news={this.state['noticiasArray']}/>
+          
+          )}
+        
       </View>
     );
   }
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-  },
-  lista: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  imagem: {
-    width: 200,
-    height: 200,
-  },
-});
