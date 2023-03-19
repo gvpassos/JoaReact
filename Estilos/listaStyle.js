@@ -5,7 +5,6 @@ export const estiloListaNoticias = StyleSheet.create({
     container:{
         backgroundColor:'#d0d5d6',
         borderWidth:1,
-        borderColor:'red',
         width:411,
         height:600,
         overflow:"hidden"
