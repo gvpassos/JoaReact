@@ -1,5 +1,5 @@
 
-export function parseXml(xml) {
+export function parseXmlNoticias(xml) {
 
   const regex = /<entry>.*?<\/entry>/gs;
   const entries = xml.match(regex);
@@ -17,7 +17,7 @@ export function parseXml(xml) {
     image = image.replace('/s72-c/', '/s1600/');
     const content = entry.match(contentRegex)==null ? "Corpo "+i : entry.match(contentRegex)[1];
     let link = entry.match(linkRegex)==null ? i : entry.match(linkRegex);
-    link = link[0].split("\" rel")[0];
+    link = link[0].split("\" ")[0];
     
     return {
       id,
@@ -33,6 +33,22 @@ export function parseXml(xml) {
   return news;
 }
 
+export function parseXmlCategorias(xml) {
 
-export default parseXml
+  const regex = /<category term="(.*?)"\/>/gs;
+  
+  const entries = xml.match(regex);
+
+  const ent = entries.map((entry,i) => {
+    let categoria =  entry.split(`"`)[1];
+    return {
+      i,
+      categoria,
+    };
+  });
+
+  return ent;
+}
+
+export default parseXmlNoticias
 

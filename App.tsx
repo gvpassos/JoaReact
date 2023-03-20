@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {View,Text,Button} from 'react-native';
+import {View,Text,Button, TouchableOpacity} from 'react-native';
 
-import{parseXml} from './Componentes/spliter';
+import{parseXmlNoticias,parseXmlCategorias} from './Componentes/spliter';
 import{NewsList} from './Componentes/NoticiaLista';
 import{Aperitivo} from './Componentes/Aperitivo';
 
-import{styles} from './Estilos/styles';
 import { estiloListaNoticias } from './Estilos/listaStyle';
+import { Categorias } from './Componentes/Categorias';
 
 
 
@@ -15,7 +15,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       noticiasArray: [],
+      categoriasArray: [],
       carregando: true,
+      nNoticias: 5
     };
   }
 
@@ -27,17 +29,25 @@ export default class App extends Component {
     if (this.state['noticiasArray'] !== nextState['noticiasArray']) {
       return true;
     }
+    if(this.state['nNoticias'] !== nextState['noticiasArray']){
+      return true;
+    }
     return false;
   }
   async fetchData() {
     try {
-      const response = await fetch('https://feeds.feedburner.com/jornaloaperitivo/hkmn');
+      let url = 'https://www.jornaloaperitivo.com.br/feeds/posts/default';
+      let urlprimaria = 'https://feeds.feedburner.com/jornaloaperitivo/hkmn';
+      const response = await fetch(urlprimaria);
       const xml = await response.text();
       
-      const news = parseXml(xml);
+      const news = parseXmlNoticias(xml);
+      const cat = parseXmlCategorias(xml);
+
 
       this.setState({
         noticiasArray: news,
+        categoriasArray: cat,
         carregando: false,
       });
     } catch (error) {
@@ -49,14 +59,19 @@ export default class App extends Component {
     return (
       <View style={estiloListaNoticias.container}>
         <Aperitivo>Jornal O Aperitivo</Aperitivo>
-        <Text>Notícias</Text>
-        {this.state['carregando'] ? (
+        <Text>Ultimas Notícias</Text>
+        <View>{this.state['carregando'] ? (
           <Text>Carregando ... </Text>
         ) : (
-          <NewsList numNoticias={26}  news={this.state['noticiasArray']}/>
+          <NewsList numNoticias={this.state['nNoticias']}  news={this.state['noticiasArray']}/>
           
           )}
-        
+          </View>
+        <TouchableOpacity onPress={()=>{ this.setState({nNoticias:this.state['nNoticias']+5 },()=>{console.log(this.state['nNoticias'] );})}}>
+              <Text style={estiloListaNoticias.botaoMostrarMais}> Mostrar Mais</Text>
+            </TouchableOpacity>
+
+          <Categorias cat={this.state['categoriasArray']}></Categorias>
       </View>
     );
   }

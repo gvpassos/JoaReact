@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet,Linking ,FlatList,View,Text,Image, Button} from 'react-native';
+import {StyleSheet,Linking ,FlatList,View,Text,Image, TouchableOpacity} from 'react-native';
 
 import{NewsItem} from './NoticiaItem.js'
 import{estiloListaNoticias} from './../Estilos/listaStyle.js'
@@ -7,8 +7,9 @@ import{estiloListaNoticias} from './../Estilos/listaStyle.js'
 export function NewsList({news, numNoticias}) {
   
   return (
-    <View><FlatList
-      data={news.slice(0, numNoticias + 1)}
+    <View >
+      <FlatList
+      data={news.slice(0,Number(numNoticias))}
       renderItem={({ item }) => (
         <View style={estiloListaNoticias.linha}>
           <Text onPress={() => { 
@@ -17,12 +18,16 @@ export function NewsList({news, numNoticias}) {
 
           }} style={estiloListaNoticias.titulo}>{item.title}</Text>
           <Image source={{uri:item.image}} style={estiloListaNoticias.imagem}/>
-            <Text style={estiloListaNoticias.botaoMostrarMais}> Mostrar Mais</Text>
+            
         </View>
         
       )}
       keyExtractor={(item) => item.id}
-    /><Text>OI</Text></View>
+      style={estiloListaNoticias.lista}
+    />
+   
+
+    </View>
   );
 }
 

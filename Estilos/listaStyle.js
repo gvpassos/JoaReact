@@ -1,22 +1,31 @@
-import { StyleSheet,screen } from "react-native";
+import { StyleSheet,Dimensions } from "react-native";
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export const estiloListaNoticias = StyleSheet.create({
     container:{
         backgroundColor:'#d0d5d6',
         borderWidth:1,
-        width:411,
-        height:600,
-        overflow:"hidden"
+        width:windowWidth,
+        height:windowHeight*2.5,
+        overflow:"hidden",
+        flexGrow: 0,
     },
+
+    lista:{
+      height:windowHeight*0.6,
+      overflow:"hidden",
+      flexGrow: 0,
+    },
+
     titulo: {
       color: '#0a7da1',
       fontWeight: 'bold',
       fontSize: 20,
       textAlign:'center',
-      width: 300,
-      paddingBottom: 10,
-      paddingLeft: 10,
+      width: windowWidth*0.7,
+      padding: 10,
 
     },
     botaoMostrarMais:{
@@ -29,11 +38,8 @@ export const estiloListaNoticias = StyleSheet.create({
         marginTop:5,
     },
     imagem: {
-      width: 100,
-      height: 100,
-      //alignSelf:'right'
-      marginRight:35,
-      marginTop:15,
+      width: windowWidth*0.3,
+      marginTop:20,
     },
     linha:{
         display: 'flex',
@@ -43,8 +49,8 @@ export const estiloListaNoticias = StyleSheet.create({
         borderBottomWidth: 1,
         flexWrap:'wrap',
         marginBottom:5,
-        height: 160,
-        width:450,
+        height: 120,
+        width:windowWidth,
         backgroundColor:'#edf5f7',
 
       }

@@ -41,3 +41,33 @@ export const headers = StyleSheet.create({
 
 
 });
+
+
+export const categoria = StyleSheet.create({
+  container:{
+    height:200,
+    backgroundColor: "#0b10a3",
+    paddingTop:2,
+    marginTop:20,
+  }, 
+  titulo:{
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20,
+    margin:5,
+    textAlign:'center',
+    
+    
+  },
+
+  subTitulo:{
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 15,
+    lineHeight: 15,
+    margin:20
+    
+  },
+
+
+});
