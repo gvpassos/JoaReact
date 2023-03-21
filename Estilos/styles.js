@@ -1,4 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions} from "react-native";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     container: {
@@ -21,14 +24,23 @@ export const headers = StyleSheet.create({
     height:110,
     backgroundColor: "#0b10a3",
     paddingTop:40,
+
   }, 
+  appbarEx:{
+    height:200,
+    backgroundColor: "#0b10a3",
+    paddingTop:40,
+  }, 
+  line:{
+    display: 'flex',
+    flexDirection: 'row', 
+  },
   appbarTitulo:{
     color: 'white',
     fontWeight: 'bold',
     fontSize: 30,
     alignSelf:'center',
     lineHeight: 30,
-    
   },
   appbarSubTitulo:{
     color: 'white',
@@ -38,7 +50,39 @@ export const headers = StyleSheet.create({
     lineHeight: 20,
     
   },
-
+  box:{
+    width:0.85*windowWidth,
+    lexWrap: 'wrap',
+  },
+  busca:{
+    width:0.15*windowWidth,
+    flexGrow:0,
+    textAlign:"center",
+    paddingTop:10,
+  },
+  menuBusca:{
+    paddingTop:30,
+    paddingLeft:30,
+    flexWrap: 'wrap',
+    width:windowWidth,
+    flexDirection:'row'
+  },
+  inputBusca:{
+    backgroundColor:'white',
+    width:windowWidth*0.5,
+    padding:3,
+    margin:12,
+  },
+  break :{
+    flexBasis: windowWidth,
+    height: 10,
+    borderBottomWidth:1,
+    borderColor:'black',
+    backgroundColor: 'black'
+  },
+  textNoticias:{
+    color :'white',
+  }
 
 });
 

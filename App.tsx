@@ -59,7 +59,6 @@ export default class App extends Component {
     return (
       <View style={estiloListaNoticias.container}>
         <Aperitivo>Jornal O Aperitivo</Aperitivo>
-        <Text>Ultimas Notícias</Text>
         <View>{this.state['carregando'] ? (
           <Text>Carregando ... </Text>
         ) : (

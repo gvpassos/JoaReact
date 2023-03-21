@@ -19,7 +19,7 @@
     "http": "^0.0.1-security",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
-    "react-native": "0.71.3",
+    "react-native": "0.71.4",
     "react-native-web": "~0.18.11",
     "react-native-xml2js": "^1.0.3",
     "typescript": "^4.9.5"
