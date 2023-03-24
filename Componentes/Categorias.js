@@ -1,4 +1,4 @@
-import { View, Text, FlatList,Linking} from 'react-native';
+import { View, Text, FlatList,Linking,ScrollView} from 'react-native';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 
 import{styles,headers, categoria} from './../Estilos/styles';
@@ -9,7 +9,11 @@ export function Categorias({cat}) {
     return <View style={categoria.container}>
         <Text style={categoria.titulo}>Categorias</Text>
     <FlatList
-        horizontal={true}
+     //style={categoria.listaCate}
+      horizontal={true}
+      scrollIndicatorInsets={{ top: 50 }}
+      showsHorizontalScrollIndicator = {true}
+
       data={cat}
       renderItem={({ item }) => (
         <View >
@@ -23,6 +27,7 @@ export function Categorias({cat}) {
         
       )}
       keyExtractor={(item) => item.i}
+      
     />
     </View>;
 }

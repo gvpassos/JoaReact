@@ -27,13 +27,19 @@ export const estiloListaNoticias = StyleSheet.create({
       padding: 10,
     },
     botaoMostrarMais:{
-        borderColor:'#2f4a52',
-        width:350,
+        borderColor:'#031945',
+        backgroundColor: "#1044a1",
+        borderRadius:3,
+        marginRight:windowWidth*0.1,
+        marginLeft:windowWidth*0.1,
         borderWidth:1,
         height:25,
         textAlign:'center',
-        marginLeft:15,
         marginTop:5,
+        color:'#d8dce6',
+        fontWeight: "bold",
+        fontSize:20,
+        
     },
     imagem: {
       width: windowWidth*0.3,
@@ -46,11 +52,12 @@ export const estiloListaNoticias = StyleSheet.create({
         borderBottomColor: '#2f4a52',
         borderBottomWidth: 1,
         flexWrap:'wrap',
-        marginBottom:5,
+        marginBottom:0,
+        paddingBottom: 5,
         height: 120,
         width:windowWidth,
         backgroundColor:'#edf5f7',
-
+        
     },
     primeiralinha:{
         display: 'flex',
@@ -65,7 +72,7 @@ export const estiloListaNoticias = StyleSheet.create({
         backgroundColor:'#edf5f7',
 
       },
-      primeirotitulo: {
+    primeirotitulo: {
         color: '#0a7da1',
         fontWeight: 'bold',
         fontSize: 20,

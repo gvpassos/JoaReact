@@ -62,14 +62,11 @@ export default class App extends Component {
         <View>{this.state['carregando'] ? (
           <Text>Carregando ... </Text>
         ) : (
-          <NewsList numNoticias={this.state['nNoticias']}  news={this.state['noticiasArray']}/>
+          <NewsList numNoticias={this.state['nNoticias']}  news={this.state['noticiasArray']} 
+          atualizar={()=>{ this.setState({nNoticias:this.state['nNoticias']+5 })}}/>
           
           )}
           </View>
-        <TouchableOpacity onPress={()=>{ this.setState({nNoticias:this.state['nNoticias']+5 },()=>{console.log(this.state['nNoticias'] );})}}>
-              <Text style={estiloListaNoticias.botaoMostrarMais}> Mostrar Mais</Text>
-            </TouchableOpacity>
-
           <Categorias cat={this.state['categoriasArray']}></Categorias>
       </View>
     );

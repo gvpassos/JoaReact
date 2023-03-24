@@ -89,10 +89,11 @@ export const headers = StyleSheet.create({
 
 export const categoria = StyleSheet.create({
   container:{
-    height:200,
+    height:105,
     backgroundColor: "#0b10a3",
     paddingTop:2,
     marginTop:20,
+    overflow:'hidden'
   }, 
   titulo:{
     color: '#fff',
@@ -103,15 +104,17 @@ export const categoria = StyleSheet.create({
     
     
   },
-
   subTitulo:{
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 15,
     lineHeight: 15,
     margin:20
-    
   },
+  listaCate:{
+    overflow:'visible',
+    backgroundColor:'#050693',
+  }
 
 
 });
