@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Text,Button, TouchableOpacity} from 'react-native';
+import {View,Text} from 'react-native';
 
 import{parseXmlNoticias,parseXmlCategorias} from './Componentes/spliter';
 import{NewsList} from './Componentes/NoticiaLista';
