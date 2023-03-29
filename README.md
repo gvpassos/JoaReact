@@ -31,7 +31,7 @@ criar um aplicativo de noticias do sul de minas
 
 - [ ] Implementar uma Inteface mais amigavel
 - [ ] Suporte a ADs 
-- [ ] Função de Busca 
+- [x] Função de Busca 
 - [x] Exibição das categorias do jornal 
 - [ ] Adição da funcao de compartilhar e de salvar noticias
 - [ ] permitir outros blog possam usar mesmo app com poucas modificações
